@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import EducationForm from './EducationForm'
+import uniqid from 'uniqid';
 
 const EducationList = (props) => {
 
@@ -8,7 +9,7 @@ const EducationList = (props) => {
         <ul>
             {props.edItems.map((ed) => (
             <EducationForm
-                onUpdateEducationData = {props.onUpdateEducationData}
+                onUpdateEducationData = {props.onUpdateEducationData} key={uniqid()}
             />))}
         </ul>
     )

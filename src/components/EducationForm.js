@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-
+import uniqid from 'uniqid';
 
 const EducationForm = (props) => {
 
     const [userInput, setUserInput] = useState({
+        key: uniqid(),
         enteredSchool: '',
         enteredMajor: '',
         enteredGradDate: ''
