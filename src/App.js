@@ -1,23 +1,34 @@
-import logo from './logo.svg';
+
 import './App.css';
+import React, { useState } from 'react';
+import EducationList from './components/EducationList'
+import AddEducationButton from './components/AddEducationButton';
+import EducationForm from './components/EducationForm';
 
 function App() {
+
+  const [genInfo, setGenInfo] = useState('');
+  const [edList, setEdList] = useState([]);
+  const [workList, setWorkList] = useState('');
+
+  const updateEducationHandler = (userInput) => {
+    console.log(userInput);
+    console.log('updating education');
+  }
+
+  const addEducationHandler = () => {
+    console.log('adding education box');
+    setEdList((prevState) => {return [...prevState, '']})
+  }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="section"> General </div>
+      <div className="section"> Education
+        <EducationList edItems={edList} onUpdateEducationData = {updateEducationHandler} />
+        <AddEducationButton onAdd={addEducationHandler}/>
+      </div>
     </div>
   );
 }
