@@ -1,17 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import EducationForm from './EducationForm'
-import uniqid from 'uniqid';
 
 const EducationList = (props) => {
 
     return (
-
         <ul>
-            {props.edItems.map((ed) => (
-            <EducationForm
-                onUpdateEducationData = {props.onUpdateEducationData} key={uniqid()}
-            />))}
+            {Object.keys(props.edItems).map((key) => {
+                return (
+                        <EducationForm
+                            onUpdateEducationData={props.onUpdateEducationData} 
+                            onRemoveEducation={props.onRemoveEducation}
+                            edData={props.edItems[key]}
+                            setEdData={props.setEdItems}
+                        />
+                )
+            })}
         </ul>
+        
     )
 }
 

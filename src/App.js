@@ -1,24 +1,46 @@
 
 import './App.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import EducationList from './components/EducationList'
 import AddEducationButton from './components/AddEducationButton';
-import EducationForm from './components/EducationForm';
+import uniqid from 'uniqid';
 
 function App() {
 
-  const [genInfo, setGenInfo] = useState('');
-  const [edList, setEdList] = useState([]);
-  const [workList, setWorkList] = useState('');
+  // const [genInfo, setGenInfo] = useState('');
+  // const [workList, setWorkList] = useState('');
 
+  const [edList, setEdList] = useState({});
+
+  // print education list to console on change
+  useEffect(() => {console.log(edList)}, [edList]);
+
+  
   const updateEducationHandler = (userInput) => {
-    console.log(userInput);
-    console.log('updating education');
+    setEdList((prevState) => {
+      return {...prevState, 
+              [userInput['key']]: userInput,
+            }})
+  
   }
 
   const addEducationHandler = () => {
     console.log('adding education box');
-    setEdList((prevState) => {return [...prevState, '']})
+    setEdList((prevState) => {
+      const newKey = uniqid();
+      return {...prevState, 
+              [newKey]: {
+                        key: newKey,
+                        enteredSchool: '',
+                        enteredMajor: '',
+                        enteredGradDate: ''
+              }
+            }
+          })}
+
+  const removeEducationHandler = (e) => {
+    console.log('removing education box');
+    console.log(e.target);
   }
 
 
@@ -26,7 +48,12 @@ function App() {
     <div className="App">
       <div className="section"> General </div>
       <div className="section"> Education
-        <EducationList edItems={edList} onUpdateEducationData = {updateEducationHandler} />
+        <EducationList 
+          edItems={edList}
+          setEdItems={setEdList}
+          onUpdateEducationData={updateEducationHandler} 
+          onRemoveEducation={removeEducationHandler}
+        />
         <AddEducationButton onAdd={addEducationHandler}/>
       </div>
     </div>

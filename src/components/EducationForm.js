@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import uniqid from 'uniqid';
 
 const EducationForm = (props) => {
 
-    const [userInput, setUserInput] = useState({
-        key: uniqid(),
-        enteredSchool: '',
-        enteredMajor: '',
-        enteredGradDate: ''
-    })
+    const [userInput, setUserInput] = useState(props.edData)
 
+    console.log(props);
+    
+
+    // when userInput state updates, call onUpdateEducationData
     useEffect(() => {props.onUpdateEducationData(userInput)}, [userInput]);
 
     const schoolChangeHandler = (e) => {
@@ -32,12 +30,6 @@ const EducationForm = (props) => {
         setUserInput((prevState) => {
             return {...prevState, enteredGradDate: e.target.value}
         })
-
-    }
-
-    const removeEducationHandler = (e) => {
-        
-        console.log('removing education');
 
     }
 
@@ -69,7 +61,7 @@ const EducationForm = (props) => {
             <div className='new-education__actions'>
                 <button 
                     type='button'
-                    onClick={removeEducationHandler}
+                    onClick={props.onRemoveEducation}
                     > Remove </button>
             </div>
         </form>
