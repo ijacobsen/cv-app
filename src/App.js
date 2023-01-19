@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import EducationList from './components/EducationList'
 import AddEducationButton from './components/AddEducationButton';
 import uniqid from 'uniqid';
+import { getValue } from '@testing-library/user-event/dist/utils';
 
 function App() {
 
@@ -40,7 +41,18 @@ function App() {
 
   const removeEducationHandler = (e) => {
     console.log('removing education box');
-    console.log(e.target);
+    console.log(e.target.value);
+    const keyToRemove = e.target.value;
+
+    setEdList((prevState) => {
+
+      // const {keyToRemove, ...rest} = prevState;
+      // console.log(rest);
+      // return rest
+    const {[keyToRemove]: oldEd, ...rest} = prevState;
+    return rest;
+    })
+
   }
 
 

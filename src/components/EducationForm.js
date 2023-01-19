@@ -62,6 +62,7 @@ const EducationForm = (props) => {
                 <button 
                     type='button'
                     onClick={props.onRemoveEducation}
+                    value={userInput.key}
                     > Remove </button>
             </div>
         </form>
