@@ -12,6 +12,7 @@ const EducationList = (props) => {
                             onRemoveEducation={props.onRemoveEducation}
                             edData={props.edItems[key]}
                             setEdData={props.setEdItems}
+                            key={key}
                         />
                 )
             })}
