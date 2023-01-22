@@ -1,6 +1,3 @@
-import React, { useState } from 'react';
-
-
 const EducationItem = (props) => {
     return (
         <li className='education-item'>
