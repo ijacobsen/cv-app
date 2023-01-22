@@ -1,8 +1,8 @@
-
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import EducationList from './components/EducationList'
 import AddEducationButton from './components/AddEducationButton';
+import RenderEducation from './components/RenderEducation';
 import uniqid from 'uniqid';
 
 function App() {
@@ -51,15 +51,24 @@ function App() {
 
   return (
     <div className="App">
-      <div className="section"> General </div>
-      <div className="section"> Education
-        <EducationList 
-          edItems={edList}
-          setEdItems={setEdList}
-          onUpdateEducationData={updateEducationHandler} 
-          onRemoveEducation={removeEducationHandler}
-        />
-        <AddEducationButton onAdd={addEducationHandler}/>
+      <div className='dataEntry'>
+        <div className="section"> General </div>
+        <div className="section"> Education
+          <EducationList 
+            edItems={edList}
+            setEdItems={setEdList}
+            onUpdateEducationData={updateEducationHandler} 
+            onRemoveEducation={removeEducationHandler}
+          />
+          <AddEducationButton onAdd={addEducationHandler}/>
+        </div>
+      </div>
+      <div className='dataDisplay'>
+        <div className='displaySection' id='education'>
+          <RenderEducation
+            edItems={edList}
+          />
+        </div>
       </div>
     </div>
   );
