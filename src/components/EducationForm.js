@@ -3,10 +3,7 @@ import React, { useEffect, useState } from 'react';
 const EducationForm = (props) => {
 
     const [userInput, setUserInput] = useState(props.edData)
-
-    console.log(props);
     
-
     // when userInput state updates, call onUpdateEducationData
     useEffect(() => {props.onUpdateEducationData(userInput)}, [userInput]);
 

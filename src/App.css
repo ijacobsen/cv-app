@@ -1,7 +1,7 @@
 .App {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: stretch;
   text-align: center;
 }
@@ -9,15 +9,14 @@
 .dataEtry {
   display: flex;
   flex-direction: column;
-  justify-content: left;
-  width: 100vw;
+  width: 50vw;
+  height: 100vw;
 }
 
 .dataDisplay {
   display: flex;
   flex-direction: column;
-  justify-content: right;
-  width: 100vw;
+  width: 50vw;
   height: 100vw;
   background-color: grey;
 }

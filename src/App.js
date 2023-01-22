@@ -18,7 +18,7 @@ import RenderInfo from './components/RenderInfo';
 
 function App() {
 
-  const [genInfo, setGenInfo] = useState({'name': ' ', 'email': ' ', 'phone': ' '});
+  const [genInfo, setGenInfo] = useState({'name': '', 'email': '', 'phone': ''});
   const [workList, setWorkList] = useState({});
   const [edList, setEdList] = useState({});
 
