@@ -13,7 +13,7 @@ function App() {
   const [edList, setEdList] = useState({});
 
   // print education list to console on change
-  useEffect(() => {console.log(edList)}, [edList]);
+  //useEffect(() => {console.log(edList)}, [edList]);
 
   
   const updateEducationHandler = (userInput) => {
@@ -25,7 +25,6 @@ function App() {
   }
 
   const addEducationHandler = () => {
-    console.log('adding education box');
     setEdList((prevState) => {
       const newKey = uniqid();
       return {...prevState, 
