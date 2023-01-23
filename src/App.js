@@ -25,12 +25,6 @@ function App() {
   // print education list to console on change
   //useEffect(() => {console.log(edList)}, [edList]);
 
-  const updateInfoHandler = (userInput) => {
-    setGenInfo((prevState) => {
-      return {userInput}
-    })
-  }
-
 
   const updateWorkHandler = (userInput) => {
     setWorkList((prevState) => {
@@ -127,18 +121,12 @@ function App() {
             genInfo={genInfo}
           />
         </div>
-        <div className='displaySection' id='education'>
-          <h3> Education </h3>
-          <RenderEducation
-            edItems={edList}
-          />
-        </div>
-        <div className='displaySection' id='work'>
-          <h3> Work Experience </h3>
-          <RenderWork
-            workItems={workList}
-          />
-        </div>
+        <RenderEducation
+          edItems={edList}
+        />
+        <RenderWork
+          workItems={workList}
+        />
       </div>
     </div>
   );
